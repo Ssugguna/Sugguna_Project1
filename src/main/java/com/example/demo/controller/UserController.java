@@ -13,9 +13,6 @@ import com.example.demo.dto.UserDto;
 import com.example.demo.service.UserService;
 import com.example.demo.utils.Constants;
 
-/**
- * Created by ashish on 13/5/17.
- */
 @RequestMapping("/user")
 @RestController
 public class UserController {
