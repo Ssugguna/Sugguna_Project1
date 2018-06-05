@@ -3,9 +3,7 @@ package com.example.demo.dto;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by ashish on 13/5/17.
- */
+
 public class UserDto {
     Integer userId;
     String userName;
