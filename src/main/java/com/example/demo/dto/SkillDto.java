@@ -1,8 +1,5 @@
 package com.example.demo.dto;
 
-/**
- * Created by ashish on 13/5/17.
- */
 public class SkillDto {
     Integer skillId;
     String SkillName;
