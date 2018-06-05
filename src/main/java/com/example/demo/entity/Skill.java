@@ -2,9 +2,6 @@ package com.example.demo.entity;
 
 import javax.persistence.*;
 
-/**
- * Created by ashish on 13/5/17.
- */
 @Entity
 public class Skill {
     @Column
