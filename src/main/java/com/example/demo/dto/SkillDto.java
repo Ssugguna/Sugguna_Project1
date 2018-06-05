@@ -1,5 +1,6 @@
 package com.example.demo.dto;
 
+
 public class SkillDto {
     Integer skillId;
     String SkillName;
