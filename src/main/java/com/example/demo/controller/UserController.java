@@ -7,17 +7,24 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.dto.UserDto;
+import com.example.demo.entity.JobPortal;
 import com.example.demo.service.UserService;
 import com.example.demo.utils.Constants;
 
+/**
+ * Created by ashish on 13/5/17.
+ */
 @RequestMapping("/user")
 @RestController
 public class UserController {
 	@Autowired
 	UserService userService;
+	
+	
 
 	@RequestMapping(Constants.GET_USER_BY_ID)
 	public UserDto getUserById(@PathVariable Integer userId) {
@@ -33,4 +40,10 @@ public class UserController {
 	public void saveUser(@RequestBody UserDto userDto) {
 		userService.saveUser(userDto);
 	}
+	
+	@RequestMapping(value= "getPortal", method= RequestMethod.POST)
+	public List<JobPortal> getPortal(@RequestBody JobPortal userDto) {
+		return userService.getAllPortalUsers(userDto);
+	}
+	
 }

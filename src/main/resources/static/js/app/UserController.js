@@ -18,6 +18,19 @@ module.controller("UserController", [ "$scope", "UserService",
 			}, function(value) {
 				console.log("no callback");
 			});
+			
+			$scope.submitApp = function() {
+			alert('hiiiiiiiiii');
+			UserService.getPortal($scope.user).then(function(value) {
+				console.log(value.data);
+				$scope.users = value.data;
+			}, function(reason) {
+				console.log("error occured");
+			}, function(value) {
+				console.log("no callback");
+			});
+			
+			}
 
 			$scope.saveUser = function() {
 				$scope.userDto.skillDtos = $scope.skills.map(skill => {

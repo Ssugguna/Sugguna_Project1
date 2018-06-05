@@ -3,7 +3,9 @@ package com.example.demo.converter;
 import com.example.demo.dto.SkillDto;
 import com.example.demo.entity.Skill;
 
-
+/**
+ * Created by ashish on 13/5/17.
+ */
 public class SkillConverter {
 	public static Skill dtoToEntity(SkillDto SkillDto) {
 		Skill Skill = new Skill(SkillDto.getSkillName(), null);

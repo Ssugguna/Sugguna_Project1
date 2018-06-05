@@ -15,13 +15,13 @@
 	        <div class="formcontainer">
 	         <div class="row">
     <div class="col-sm-4" style="border: solid lightgrey 5px;padding: 10px 1px 22px 27px;">
-	            <form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
-	                <input type="hidden" ng-model="ctrl.user.id" />
+	            <form  name="myForm" class="form-horizontal">
+	                <input type="hidden" ng-model="user.id" />
 	                <div class="row">
 	                    <div class="form-group">
 	                        <label class="col-md-4 control-lable" for="uname">Technology</label>
 	                        <div class="col-md-7">
-	                            <input type="text" ng-model="ctrl.user.name" id="uname" class="username form-control input-sm" placeholder="Enter Tech" required ng-minlength="3"/>
+	                            <input type="text" ng-model="user.jobName" id="uname" class="username form-control input-sm" placeholder="Enter Tech"/>
 	                        </div>
 	                    </div>
 	                     
@@ -30,7 +30,7 @@
                            <div class="form-group">
 	                        <label class="col-md-4 control-lable" for="uname">Location</label>
 	                        <div class="col-md-7">
-	                            <input type="text" ng-model="ctrl.user.name" id="uname" class="username form-control input-sm" placeholder="Enter Tech" required ng-minlength="3"/>
+	                            <input type="text" ng-model="user.name" id="uname" class="username form-control input-sm" placeholder="Enter Tech"/>
 	                        </div>
 	                    </div>
 	                    </div>
@@ -38,7 +38,7 @@
 	                    <div class="form-group">
 	                        <label class="col-md-4 control-lable" for="age">Type</label>
 	                        <div class="col-md-7">
-	                            <input type="text" ng-model="ctrl.user.age" id="age" class="form-control input-sm" placeholder="Permanent/Fulltime" required ng-pattern="ctrl.onlyIntegers"/>
+	                            <input type="text" ng-model="user.age" id="age" class="form-control input-sm" placeholder="Permanent/Fulltime"/>
 	                        </div>
 	                    </div>
 	                </div>
@@ -47,15 +47,15 @@
 	                    <div class="form-group">
 	                        <label class="col-md-4 control-lable" for="salary">Salary</label>
 	                        <div class="col-md-7">
-	                            <input type="text" ng-model="ctrl.user.salary" id="salary" class="form-control input-sm" placeholder="Salary " required ng-pattern="ctrl.onlyNumbers"/>
+	                            <input type="text" ng-model="ctrl.user.salary" id="salary" class="form-control input-sm" placeholder="Salary "/>
 	                        </div>
 	                    </div>
 	                </div>
 
 	                <div class="row">
 	                    <div class="form-actions floatLeft" style="padding-left: 122px !important;">
-	                        <input type="submit"  value="Search" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid || myForm.$pristine">
-	                        <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Reset Form</button>
+	                        <input type="submit" ng-click="submitApp()" value="Search" class="btn btn-primary btn-sm">
+	                        <button type="button" ng-click="reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Reset Form</button>
 	                    </div>
 	                </div>
 	            </form>
@@ -67,18 +67,18 @@
 		            <tr>
 		                <th>ID</th>
 		                <th>NAME</th>
-		                <th>AGE</th>
+		                <th>Applicant Name</th>
 		                <th>SALARY</th>
 		                <th width="100"></th>
 		                <th width="100"></th>
 		            </tr>
 		            </thead>
 		            <tbody>
-		            <tr ng-repeat="u in ctrl.getAllUsers()">
+		            <tr ng-repeat="u in users">
 		                <td>{{u.id}}</td>
-		                <td>{{u.name}}</td>
-		                <td>{{u.age}}</td>
-		                <td>{{u.salary}}</td>
+		                <td>{{u.jobName}}</td>
+		                <td>{{u.job_applicant_name}}</td>
+		                <td>{{u.job_salary}}</td>
 		                <td><button type="button" ng-click="ctrl.editUser(u.id)" class="btn btn-success custom-width">Edit</button></td>
 		                <td><button type="button" ng-click="ctrl.removeUser(u.id)" class="btn btn-danger custom-width">Remove</button></td>
 		            </tr>

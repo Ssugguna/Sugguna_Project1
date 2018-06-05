@@ -13,5 +13,8 @@ angular.module('demo.services', []).factory('UserService',
 			service.saveUser = function(userDto) {
 				return $http.post(CONSTANTS.saveUser, userDto);
 			}
+			service.getPortal = function(userDto) {
+				return $http.post("/user/getPortal", userDto);
+			}
 			return service;
 		} ]);

@@ -5,6 +5,9 @@ import java.util.stream.Collectors;
 import com.example.demo.dto.UserDto;
 import com.example.demo.entity.User;
 
+/**
+ * Created by ashish on 13/5/17.
+ */
 public class UserConverter {
 	public static User dtoToEntity(UserDto userDto) {
 		User user = new User(userDto.getUserName(), null);

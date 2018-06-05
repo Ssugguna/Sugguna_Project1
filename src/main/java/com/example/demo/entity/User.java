@@ -5,7 +5,9 @@ import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
-
+/**
+ * Created by ashish on 13/5/17.
+ */
 @Entity
 public class User implements Serializable{
 
