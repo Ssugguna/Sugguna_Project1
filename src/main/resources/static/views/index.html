@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Main Page</title>
+</head>
+<body ng-app="demo">
+<hr/>
+<div class="container" ng-controller="UserController">
+ <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading"><span class="lead">Search Panel </span></div>
+		<div class="panel-body">
+		
+	        <div class="formcontainer">
+	         <div class="row">
+    <div class="col-sm-4" style="border: solid lightgrey 5px;padding: 10px 1px 22px 27px;">
+	            <form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
+	                <input type="hidden" ng-model="ctrl.user.id" />
+	                <div class="row">
+	                    <div class="form-group">
+	                        <label class="col-md-4 control-lable" for="uname">Technology</label>
+	                        <div class="col-md-7">
+	                            <input type="text" ng-model="ctrl.user.name" id="uname" class="username form-control input-sm" placeholder="Enter Tech" required ng-minlength="3"/>
+	                        </div>
+	                    </div>
+	                     
+	                </div>
+	                <div class="row">
+                           <div class="form-group">
+	                        <label class="col-md-4 control-lable" for="uname">Location</label>
+	                        <div class="col-md-7">
+	                            <input type="text" ng-model="ctrl.user.name" id="uname" class="username form-control input-sm" placeholder="Enter Tech" required ng-minlength="3"/>
+	                        </div>
+	                    </div>
+	                    </div>
+	                <div class="row">
+	                    <div class="form-group">
+	                        <label class="col-md-4 control-lable" for="age">Type</label>
+	                        <div class="col-md-7">
+	                            <input type="text" ng-model="ctrl.user.age" id="age" class="form-control input-sm" placeholder="Permanent/Fulltime" required ng-pattern="ctrl.onlyIntegers"/>
+	                        </div>
+	                    </div>
+	                </div>
+	
+	                <div class="row">
+	                    <div class="form-group">
+	                        <label class="col-md-4 control-lable" for="salary">Salary</label>
+	                        <div class="col-md-7">
+	                            <input type="text" ng-model="ctrl.user.salary" id="salary" class="form-control input-sm" placeholder="Salary " required ng-pattern="ctrl.onlyNumbers"/>
+	                        </div>
+	                    </div>
+	                </div>
+
+	                <div class="row">
+	                    <div class="form-actions floatLeft" style="padding-left: 122px !important;">
+	                        <input type="submit"  value="Search" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid || myForm.$pristine">
+	                        <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Reset Form</button>
+	                    </div>
+	                </div>
+	            </form>
+    	   </div>
+    	   <div class="col-sm-8">
+    	   <div class="table-responsive">
+		        <table class="table table-hover">
+		            <thead>
+		            <tr>
+		                <th>ID</th>
+		                <th>NAME</th>
+		                <th>AGE</th>
+		                <th>SALARY</th>
+		                <th width="100"></th>
+		                <th width="100"></th>
+		            </tr>
+		            </thead>
+		            <tbody>
+		            <tr ng-repeat="u in ctrl.getAllUsers()">
+		                <td>{{u.id}}</td>
+		                <td>{{u.name}}</td>
+		                <td>{{u.age}}</td>
+		                <td>{{u.salary}}</td>
+		                <td><button type="button" ng-click="ctrl.editUser(u.id)" class="btn btn-success custom-width">Edit</button></td>
+		                <td><button type="button" ng-click="ctrl.removeUser(u.id)" class="btn btn-danger custom-width">Remove</button></td>
+		            </tr>
+		            </tbody>
+		        </table>		
+			</div>
+    	    </div>
+    	    </div>
+		</div>	
+    </div>
+    <div class="panel panel-default" style="display:none">
+        <!-- Default panel contents -->
+        <div class="panel-heading"><span class="lead">List of Job Seekers </span></div>
+		<div class="panel-body">
+			<div class="table-responsive">
+		        <table class="table table-hover">
+		            <thead>
+		            <tr>
+		                <th>ID</th>
+		                <th>NAME</th>
+		                <th>AGE</th>
+		                <th>SALARY</th>
+		                <th width="100"></th>
+		                <th width="100"></th>
+		            </tr>
+		            </thead>
+		            <tbody>
+		            <tr ng-repeat="u in ctrl.getAllUsers()">
+		                <td>{{u.id}}</td>
+		                <td>{{u.name}}</td>
+		                <td>{{u.age}}</td>
+		                <td>{{u.salary}}</td>
+		                <td><button type="button" ng-click="ctrl.editUser(u.id)" class="btn btn-success custom-width">Edit</button></td>
+		                <td><button type="button" ng-click="ctrl.removeUser(u.id)" class="btn btn-danger custom-width">Remove</button></td>
+		            </tr>
+		            </tbody>
+		        </table>		
+			</div>
+		</div>
+    </div>
+</div></div>
+
+    <!-- <div class="row">
+        <label>User</label> <input type="text" ng-model="userDto.userName" class="input-sm spacing"/>
+        <label>Skills</label> <input type="text" ng-model="skills" ng-list class="input-sm custom-width spacing"
+                                     placeholder="use comma to separate skills"/>
+        <button ng-click="saveUser()" class="btn btn-sm btn-info">Save User</button>
+    </div>
+    <hr/>
+    <div class="row">
+        <p>{{allUsers | json}}</p>
+    </div>
+    <hr/>
+    <div class="row" ng-repeat="user in allUsers">
+        <div class="">
+            <h3>{{user.userName}}</h3>
+            <span ng-repeat="skill in user.skillDtos" class="spacing">{{skill.skillName}}</span>
+        </div>
+    </div> -->
+</body>
+<script src="js/lib/angular.min.js"></script>
+<script src="js/lib/ui-bootstrap-tpls-2.5.0.min.js"></script>
+<script src="js/app/app.js"></script>
+<script src="js/app/UserController.js"></script>
+<script src="js/app/UserService.js"></script>
+<link rel="stylesheet" href="css/lib/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/app/app.css"/>
+</html>
